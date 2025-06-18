@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Devashish Sharma - Computer Engineering Student and Software Developer specializing in AI/ML, Full-Stack Development, and UI/UX Design">
+    <meta name="keywords" content="Devashish Sharma, Software Developer, AI/ML, Full-Stack Development, Computer Engineering, Python, React, JavaScript">
+    <meta name="author" content="Devashish Sharma">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-resume-url.netlify.app/">
+    <meta property="og:title" content="Devashish Sharma - Professional Resume">
+    <meta property="og:description" content="Computer Engineering Student and Software Developer specializing in AI/ML and Full-Stack Development">
+    <meta property="og:image" content="https://your-resume-url.netlify.app/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://your-resume-url.netlify.app/">
+    <meta property="twitter:title" content="Devashish Sharma - Professional Resume">
+    <meta property="twitter:description" content="Computer Engineering Student and Software Developer specializing in AI/ML and Full-Stack Development">
+    <meta property="twitter:image" content="https://your-resume-url.netlify.app/og-image.jpg">
+
+    <title>Devashish Sharma - Professional Resume</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+    
+    <!-- Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Particle Background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #667eea;
+            border-radius: 50%;
+            animation: float-particle 20s infinite linear;
+            box-shadow: 0 0 6px rgba(102, 126, 234, 0.3);
+        }
+        @keyframes float-particle {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .gradient-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.2"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.2"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.2"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 12px;
+            color: #1e293b;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideInUp 0.8s ease forwards;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { box-shadow: 0 0 5px #667eea; }
+            to { box-shadow: 0 0 20px #667eea, 0 0 30px #764ba2; }
+        }
+        @keyframes slideInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            display: inline-block;
+            margin: 4px 8px 4px 0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: popIn 0.6s ease forwards;
+        }
+        .skill-tag:nth-child(1) { animation-delay: 0.1s; }
+        .skill-tag:nth-child(2) { animation-delay: 0.2s; }
+        .skill-tag:nth-child(3) { animation-delay: 0.3s; }
+        .skill-tag:nth-child(4) { animation-delay: 0.4s; }
+        .skill-tag:nth-child(5) { animation-delay: 0.5s; }
+        .skill-tag:nth-child(6) { animation-delay: 0.6s; }
+        
+        @keyframes popIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .skill-tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        .skill-tag:hover::before {
+            left: 100%;
+        }
+        .skill-tag:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .project-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 28px;
+            transition: all 0.4s ease;
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideInUp 0.8s ease forwards;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        .project-card:nth-child(1) { animation-delay: 0.2s; }
+        .project-card:nth-child(2) { animation-delay: 0.4s; }
+        .project-card:nth-child(3) { animation-delay: 0.6s; }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+        .project-card:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+            border-color: #667eea;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            color: #f7fafc;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: slideInLeft 0.6s ease forwards;
+        }
+        .contact-item:nth-child(1) { animation-delay: 0.1s; }
+        .contact-item:nth-child(2) { animation-delay: 0.2s; }
+        .contact-item:nth-child(3) { animation-delay: 0.3s; }
+        .contact-item:nth-child(4) { animation-delay: 0.4s; }
+        .contact-item:nth-child(5) { animation-delay: 0.5s; }
+        
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .contact-item:hover {
+            transform: translateX(5px);
+            color: #667eea;
+        }
+        .contact-item i {
+            width: 24px;
+            margin-right: 12px;
+            color: #667eea;
+            transition: all 0.3s ease;
+        }
+        .contact-item:hover i {
+            transform: scale(1.2) rotate(360deg);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 24px;
+            color: #475569;
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: slideInLeft 0.6s ease forwards;
+        }
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 8px;
+            width: 14px;
+            height: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(102, 126, 234, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0); }
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 16px;
+            top: 22px;
+            width: 2px;
+            height: calc(100% - 8px);
+            background: linear-gradient(180deg, #667eea 0%, transparent 100%);
+        }
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        .main-container {
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .tech-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .tech-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        .tech-badge:hover::before {
+            left: 100%;
+        }
+        .tech-badge:hover {
+            transform: scale(1.1) rotate(2deg);
+        }
+        
+        .floating-animation {
+            animation: floating 6s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .typing-effect {
+            overflow: hidden;
+            border-right: 2px solid #667eea;
+            white-space: nowrap;
+            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #667eea; }
+        }
+        
+        .learning-path-item {
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: slideInLeft 0.6s ease forwards;
+        }
+        .learning-path-item:nth-child(1) { animation-delay: 0.1s; }
+        .learning-path-item:nth-child(2) { animation-delay: 0.2s; }
+        .learning-path-item:nth-child(3) { animation-delay: 0.3s; }
+        .learning-path-item:nth-child(4) { animation-delay: 0.4s; }
+        
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            transform: scaleX(0);
+            transform-origin: left;
+            z-index: 1000;
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        }
+        
+        .bounce-in {
+            animation: bounceIn 1s ease;
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        @media print {
+            body { -webkit-print-color-adjust: exact; }
+            .no-print { display: none; }
+        }
+        @media (max-width: 768px) {
+            .project-card { padding: 20px; }
+            .skill-tag { font-size: 0.75rem; padding: 6px 12px; }
+        }
+    </style>
+</head>
+<body class="p-4">
+    <!-- Particle Background -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+    
+    <div class="max-w-5xl mx-auto main-container">
+        <!-- Header Section -->
+        <div class="gradient-bg text-white px-8 py-16 relative">
+            <div class="relative z-10">
+                <div class="grid md:grid-cols-3 gap-8 items-center">
+                    <div class="md:col-span-2">
+                        <h1 class="text-5xl md:text-6xl font-bold mb-4 floating-animation glow-text">Devashish Sharma</h1>
+                        <p class="text-2xl md:text-3xl font-light opacity-90 mb-6 typing-effect">Computer Engineering Student</p>
+                        <p class="text-lg opacity-80 leading-relaxed bounce-in">🚀 Aspiring Software Developer specializing in AI/ML, Full-Stack Development, and UI/UX Design. Passionate about creating innovative solutions that make a real-world impact.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:devashishsharma860@gmail.com" class="hover:text-blue-200 transition-colors">G-MAIL</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+91 8146795946" class="hover:text-blue-200 transition-colors">Phone</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <a href="https://www.linkedin.com/in/devashish-sharma-542961315/" class="hover:text-blue-200 transition-colors">Linkedin</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <a href="https://github.com/DevashishSharma-bit" class="hover:text-blue-200 transition-colors">Github</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Navi Mumbai, India</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="px-8 py-12 grid md:grid-cols-3 gap-10">
+            <!-- Left Column -->
+            <div class="md:col-span-1">
+                <!-- Education Section -->
+                <section class="mb-10">
+                    <h2 class="section-title text-2xl font-bold mb-8">🎓 Education</h2>
+                    <div class="space-y-6">
+                        <div class="timeline-item">
+                            <h3 class="font-semibold text-gray-800 text-lg">Bachelor of Engineering</h3>
+                            <p class="text-blue-600 font-medium">Computer Engineering</p>
+                            <p class="text-gray-600 text-sm">Pillai HOC College of Engineering</p>
+                            <p class="text-gray-500 text-sm">2024 - 2028 (2nd Year)</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h3 class="font-semibold text-gray-800 text-lg">Higher Secondary Education</h3>
+                            <p class="text-blue-600 font-medium">12th Grade</p>
+                            <p class="text-gray-600 text-sm">Convent of Gagan Bharti Senior Secondary School</p>
+                            <p class="text-gray-500 text-sm">New Delhi • 2024</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Technical Skills Section -->
+                <section class="mb-10">
+                    <h2 class="section-title text-2xl font-bold mb-8">⚡ Technical Skills</h2>
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-3 text-lg">Programming Languages</h4>
+                            <div class="flex flex-wrap">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">HTML5</span>
+                                <span class="skill-tag">CSS3</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-3 text-lg">Frameworks & Technologies</h4>
+                            <div class="flex flex-wrap">
+                                <span class="skill-tag">React.js</span>
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">Express.js</span>
+                                <span class="skill-tag">MongoDB</span>
+                                <span class="skill-tag">FastAPI</span>
+                                <span class="skill-tag">Streamlit</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-3 text-lg">AI/ML & Tools</h4>
+                            <div class="flex flex-wrap">
+                                <span class="skill-tag">LangChain</span>
+                                <span class="skill-tag">OpenAI GPT</span>
+                                <span class="skill-tag">OCR</span>
+                                <span class="skill-tag">Telegram Bot API</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-3 text-lg">Design & Others</h4>
+                            <div class="flex flex-wrap">
+                                <span class="skill-tag">UI/UX Design</span>
+                                <span class="skill-tag">Responsive Design</span>
+                                <span class="skill-tag">Git/GitHub</span>
+                                <span class="skill-tag">Netlify</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Learning Path Section -->
+                <section class="mb-10">
+                    <h2 class="section-title text-2xl font-bold mb-8">📚 Learning Path</h2>
+                    <div class="space-y-4">
+                        <div class="learning-path-item flex items-center">
+                            <div class="w-4 h-4 bg-green-500 rounded-full mr-4 animate-pulse"></div>
+                            <span class="text-gray-700">Python Development</span>
+                        </div>
+                        <div class="learning-path-item flex items-center">
+                            <div class="w-4 h-4 bg-blue-500 rounded-full mr-4 animate-pulse"></div>
+                            <span class="text-gray-700">MERN Stack Development</span>
+                        </div>
+                        <div class="learning-path-item flex items-center">
+                            <div class="w-4 h-4 bg-purple-500 rounded-full mr-4 animate-pulse"></div>
+                            <span class="text-gray-700">UI/UX Design Principles</span>
+                        </div>
+                        <div class="learning-path-item flex items-center">
+                            <div class="w-4 h-4 bg-orange-500 rounded-full mr-4 animate-pulse"></div>
+                            <span class="text-gray-700">AI/ML Applications</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column -->
+            <div class="md:col-span-2">
+                <!-- Professional Summary -->
+                <section class="mb-10">
+                    <h2 class="section-title text-2xl font-bold mb-8">💼 Professional Summary</h2>
+                    <p class="text-gray-600 leading-relaxed text-lg">
+                        Dedicated Computer Engineering student with hands-on experience in AI-powered applications, full-stack web development, and modern UI/UX design. Proven track record of building innovative projects including cybersecurity platforms, interactive web applications, and business automation tools. Strong foundation in Python, MERN stack, and emerging AI technologies with a passion for creating solutions that address real-world challenges.
+                    </p>
+                </section>
+
+                <!-- Projects Section -->
+                <section class="mb-10">
+                    <h2 class="section-title text-2xl font-bold mb-8">🚀 Key Projects</h2>
+                    
+                    <div class="project-card">
+                        <div class="flex justify-between items-start mb-6">
+                            <h3 class="text-2xl font-bold text-gray-800">CyberRakshak-AI</h3>
+                            <a href="https://github.com/Team-Unfazed/CyberRakshak-AI" class="text-blue-600 hover:text-blue-800 transition-colors">
+                                <i class="fab fa-github text-2xl"></i>
+                            </a>
+                        </div>
+                        <p class="text-gray-600 mb-6 text-lg">AI-powered digital safety platform designed to protect digitally vulnerable citizens through real-time scam detection, multilingual education, and automated cyber fraud reporting.</p>
+                        <div class="mb-6">
+                            <h4 class="font-semibold text-gray-700 mb-3 text-lg">Key Features:</h4>
+                            <ul class="text-gray-600 list-disc list-inside space-y-2">
+                                <li>Real-time scam detection with multi-agent architecture</li>
+                                <li>AI-driven education in Indian regional languages</li>
+                                <li>Auto-generated FIR reports for cyber fraud cases</li>
+                                <li>24/7 cybercop and mentor functionality</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="tech-badge bg-blue-100 text-blue-800 border border-blue-200">Python</span>
+                            <span class="tech-badge bg-green-100 text-green-800 border border-green-200">FastAPI</span>
+                            <span class="tech-badge bg-purple-100 text-purple-800 border border-purple-200">Streamlit</span>
+                            <span class="tech-badge bg-orange-100 text-orange-800 border border-orange-200">LangChain</span>
+                            <span class="tech-badge bg-red-100 text-red-800 border border-red-200">OpenAI GPT</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="flex justify-between items-start mb-6">
+                            <h3 class="text-2xl font-bold text-gray-800">3D Naruto Interactive Website</h3>
+                            <div class="flex space-x-3">
+                                <a href="https://devashish-3d.netlify.app/" class="text-green-600 hover:text-green-800 transition-colors">
+                                    <i class="fas fa-external-link-alt text-2xl"></i>
+                                </a>
+                                <a href="https://github.com/DevashishSharma-bit/3D-" class="text-blue-600 hover:text-blue-800 transition-colors">
+                                    <i class="fab fa-github text-2xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6 text-lg">Modern 3D-themed interactive website featuring dynamic character slider, sleek animations, and responsive design optimized for engaging user experiences across all devices.</p>
+                        <div class="mb-6">
+                            <h4 class="font-semibold text-gray-700 mb-3 text-lg">Key Features:</h4>
+                            <ul class="text-gray-600 list-disc list-inside space-y-2">
+                                <li>Dynamic 3D character slider with smooth transitions</li>
+                                <li>Interactive hover effects and custom textures</li>
+                                <li>Responsive design optimized for all screen sizes</li>
+                                <li>Performance-optimized animations and loading</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="tech-badge bg-orange-100 text-orange-800 border border-orange-200">HTML5</span>
+                            <span class="tech-badge bg-blue-100 text-blue-800 border border-blue-200">CSS3</span>
+                            <span class="tech-badge bg-yellow-100 text-yellow-800 border border-yellow-200">JavaScript</span>
+                            <span class="tech-badge bg-green-100 text-green-800 border border-green-200">Netlify</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="flex justify-between items-start mb-6">
+                            <h3 class="text-2xl font-bold text-gray-800">Autobook-AI</h3>
+                            <div class="flex space-x-3">
+                                <a href="https://t.me/TallyDevbot" class="text-blue-600 hover:text-blue-800 transition-colors">
+                                    <i class="fab fa-telegram text-2xl"></i>
+                                </a>
+                                <a href="https://github.com/Team-Unfazed/Autobook-AI" class="text-blue-600 hover:text-blue-800 transition-colors">
+                                    <i class="fab fa-github text-2xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6 text-lg">Intelligent Telegram bot designed to simplify business workflows by integrating Tally automation, OCR processing, and AI-powered chat capabilities for streamlined data management.</p>
+                        <div class="mb-6">
+                            <h4 class="font-semibold text-gray-700 mb-3 text-lg">Key Features:</h4>
+                            <ul class="text-gray-600 list-disc list-inside space-y-2">
+                                <li>OCR processing for automatic invoice/bill text extraction</li>
+                                <li>AI-powered chat assistant via OpenRouter API</li>
+                                <li>Automated data integration with Tally and Google Sheets</li>
+                                <li>Streamlined business workflow automation</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="tech-badge bg-blue-100 text-blue-800 border border-blue-200">Python</span>
+                            <span class="tech-badge bg-cyan-100 text-cyan-800 border border-cyan-200">Telegram Bot API</span>
+                            <span class="tech-badge bg-purple-100 text-purple-800 border border-purple-200">OpenRouter API</span>
+                            <span class="tech-badge bg-green-100 text-green-800 border border-green-200">OCR</span>
+                            <span class="tech-badge bg-yellow-100 text-yellow-800 border border-yellow-200">Google Sheets API</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Additional Information -->
+                <section class="mb-10">
+                    <h2 class="section-title text-2xl font-bold mb-8">📋 Additional Information</h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-4 text-lg">Interests</h4>
+                            <ul class="text-gray-600 space-y-2">
+                                <li>• Artificial Intelligence & Machine Learning</li>
+                                <li>• Full-Stack Web Development</li>
+                                <li>• User Experience Design</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-4 text-lg">Languages</h4>
+                            <ul class="text-gray-600 space-y-2">
+                                <li>• English (Fluent)</li>
+                                <li>• Hindi (Native)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="bg-gray-50 px-8 py-6 text-center border-t border-gray-200">
+            <p class="text-gray-600">
+                Updated January 2025 • 
+                <a href="https://www.linkedin.com/in/devashish-sharma-542961315/" class="text-blue-600 hover:text-blue-800 transition-colors">Connect on LinkedIn</a> • 
+                <a href="https://github.com/DevashishSharma-bit" class="text-blue-600 hover:text-blue-800 transition-colors">View GitHub Profile</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Scroll progress indicator
+        function updateScrollProgress() {
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            scrollIndicator.style.transform = `scaleX(${scrollPercent / 100})`;
+        }
+
+        // Intersection Observer for scroll animations
+        function setupScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            setupScrollAnimations();
+            
+            // Add scroll event listener
+            window.addEventListener('scroll', updateScrollProgress);
+            
+            // Add some interactive effects
+            document.querySelectorAll('.skill-tag').forEach(tag => {
+                tag.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.1)';
+                });
+                
+                tag.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
